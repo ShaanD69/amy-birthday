@@ -101,10 +101,26 @@
       opacity: 0.6;
     }
 
+    /* Floating Stars / Sparkles */
+    .stars span {
+      position: fixed;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 4s linear infinite;
+    }
+
     @keyframes float {
       0% { transform: translateY(0) translateX(0); opacity: 0; }
       10% { opacity: 0.6; }
       100% { transform: translateY(-110vh) translateX(30px); opacity: 0; }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.8; }
     }
 
     @keyframes fadeIn {
@@ -130,6 +146,8 @@
 
   <!-- Floating Hearts -->
   <div class="hearts" id="hearts"></div>
+  <!-- Floating Stars -->
+  <div class="stars" id="stars"></div>
 
   <!-- Main Content -->
   <div class="container" id="main">
@@ -172,6 +190,7 @@
       document.getElementById('main').style.display = 'flex';
       document.getElementById('music').play();
       createHearts();
+      createStars();
     }
 
     function createHearts() {
@@ -183,6 +202,17 @@
         span.style.animationDuration = 6 + Math.random() * 6 + 's';
         span.style.fontSize = 12 + Math.random() * 20 + 'px';
         hearts.appendChild(span);
+      }
+    }
+
+    function createStars() {
+      const stars = document.getElementById('stars');
+      for (let i = 0; i < 50; i++) {
+        const star = document.createElement('span');
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.animationDuration = 2 + Math.random() * 3 + 's';
+        stars.appendChild(star);
       }
     }
   </script>
