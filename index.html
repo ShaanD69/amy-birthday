@@ -3,159 +3,219 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For Amy 💜</title>
-
-  <!-- Lofi background music -->
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/audio/2023/03/13/audio_4b8cbd0a6a.mp3" type="audio/mpeg">
-  </audio>
-
+  <title>For Amy 💗</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #f4c2e7, #cbb4f6);
-      color: #4a2c5b;
-      overflow-x: hidden;
-      overflow-y: auto;
-      min-height: 100%;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f9c5d1, #e0aaff, #d6bfff);
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
     }
 
-    /* Tap screen */
-    .tap-screen {
+    /* Tap to Begin Screen */
+    .intro {
       position: fixed;
       inset: 0;
-      background: linear-gradient(135deg, #f4c2e7, #cbb4f6);
+      background: linear-gradient(135deg, #f9c5d1, #e0aaff, #d6bfff);
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 10;
+      cursor: pointer;
     }
 
-    .tap-text {
-      font-size: 1.6rem;
-      animation: pulse 1.5s infinite;
+    .intro h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      animation: pulse 2s infinite;
+      color: #ffffff;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.3);
     }
 
-    @keyframes pulse {
-      0% { opacity: 0.5; }
-      50% { opacity: 1; }
-      100% { opacity: 0.5; }
-    }
-
-    /* Floating hearts & stars */
-    .floating {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .heart, .star {
-      position: absolute;
-      opacity: 0.7;
-      animation: floatUp linear infinite;
-    }
-
-    .heart {
-      font-size: 20px;
-      color: #ff8dc7;
-    }
-
-    .star {
-      font-size: 14px;
-      color: #fff3ff;
-    }
-
-    @keyframes floatUp {
-      from { transform: translateY(100vh); }
-      to { transform: translateY(-10vh); }
-    }
-
-    /* Content */
+    /* Main Content */
     .container {
-      padding: 24px 18px 80px;
-      max-width: 700px;
-      margin: 0 auto;
+      display: none;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      animation: fadeIn 2s ease;
       position: relative;
       z-index: 2;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(12px);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 10px;
     }
 
-    h1 {
+    h2 {
       text-align: center;
-      font-weight: 500;
+      font-weight: 300;
+      margin-bottom: 30px;
+      opacity: 0.9;
     }
 
     p {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       line-height: 1.8;
+      margin-bottom: 20px;
+      opacity: 0.95;
     }
+
+    .signature {
+      margin-top: 40px;
+      text-align: right;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+    }
+
+    .heart {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    /* Floating Hearts */
+    .hearts span {
+      position: fixed;
+      bottom: -10px;
+      font-size: 20px;
+      animation: float 10s linear infinite;
+      opacity: 0.6;
+    }
+
+    /* Floating Stars / Sparkles */
+    .stars span {
+      position: fixed;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 4s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: 0.6; }
+      100% { transform: translateY(-110vh) translateX(30px); opacity: 0; }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.8; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    audio { display: none; }
   </style>
 </head>
 <body>
 
-  <div class="tap-screen" id="tapScreen">
-    <div class="tap-text">Tap to Begin 💗</div>
+  <!-- Tap to Begin -->
+  <div class="intro" onclick="startSite()">
+    <h1>Tap to Begin 💗</h1>
   </div>
 
-  <div class="floating" id="floating"></div>
+  <!-- Floating Hearts -->
+  <div class="hearts" id="hearts"></div>
+  <!-- Floating Stars -->
+  <div class="stars" id="stars"></div>
 
-  <div class="container" id="content" style="display:none;">
+  <!-- Main Content -->
+  <div class="container" id="main">
     <div class="card">
-      <h1>Dear Amy,</h1>
+      <h1>Happy Birthday, Amy 🎂</h1>
+      <h2>This is just for you</h2>
+
       <p>
-        Even with the distance between us, you somehow make my days softer,
-        warmer, and brighter. Every thought of you feels like a quiet melody
-        that stays with me no matter where I am.
+        On this special day, I just want you to know how deeply you mean to me. Even with the distance between us, you’ve found a way to be close to my heart every single day.
       </p>
+
       <p>
-        This little space is just for you — something gentle, calm, and full
-        of love, just like the way you make me feel.
+        You are warmth, comfort, and calm all at once. You make ordinary moments feel special, and even the hard days feel lighter just by being you. I admire your kindness, your strength, and the way you exist so effortlessly as yourself.
       </p>
+
       <p>
-        Happy Birthday, Amy. I’m always with you, in every heartbeat.
+        I wish I could be there today — to see your smile, hear your laugh, and celebrate you properly. Until then, I hope this little space on the internet reminds you that someone is thinking about you, loving you, and choosing you every day.
       </p>
-      <p style="text-align:right;">— Tristan</p>
+
+      <p>
+        May this year bring you peace, happiness, and everything your heart quietly hopes for. You deserve so much more than words can say.
+      </p>
+
+      <div class="signature">
+        — Always yours,<br />
+        Tristan
+      </div>
+
+      <div class="heart">💗</div>
     </div>
   </div>
 
+  <audio id="music" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_4d1b5d9a8b.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
-    const tap = document.getElementById('tapScreen');
-    const content = document.getElementById('content');
-    const music = document.getElementById('bg-music');
+    function startSite() {
+      document.querySelector('.intro').style.display = 'none';
+      document.getElementById('main').style.display = 'flex';
+      document.getElementById('music').play();
+      createHearts();
+      createStars();
+    }
 
-    tap.addEventListener('click', () => {
-      tap.style.display = 'none';
-      content.style.display = 'block';
-      music.play();
-      spawnFloating();
-    });
-
-    function spawnFloating() {
-      const floating = document.getElementById('floating');
+    function createHearts() {
+      const hearts = document.getElementById('hearts');
       for (let i = 0; i < 20; i++) {
-        const el = document.createElement('div');
-        el.className = Math.random() > 0.5 ? 'heart' : 'star';
-        el.innerHTML = el.className === 'heart' ? '❤' : '✦';
-        el.style.left = Math.random() * 100 + 'vw';
-        el.style.animationDuration = 6 + Math.random() * 6 + 's';
-        el.style.fontSize = 12 + Math.random() * 16 + 'px';
-        floating.appendChild(el);
+        const span = document.createElement('span');
+        span.innerHTML = '💗';
+        span.style.left = Math.random() * 100 + 'vw';
+        span.style.animationDuration = 6 + Math.random() * 6 + 's';
+        span.style.fontSize = 12 + Math.random() * 20 + 'px';
+        hearts.appendChild(span);
+      }
+    }
+
+    function createStars() {
+      const stars = document.getElementById('stars');
+      for (let i = 0; i < 50; i++) {
+        const star = document.createElement('span');
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.animationDuration = 2 + Math.random() * 3 + 's';
+        stars.appendChild(star);
       }
     }
   </script>
+
 </body>
 </html>
