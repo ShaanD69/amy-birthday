@@ -1,0 +1,103 @@
+<!-- ============================================ -->
+<!-- FILE: final.html -->
+<!-- ============================================ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Amy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #e9d5ff 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #9d4edd;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(157, 78, 221, 0.3);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(157, 78, 221, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(157, 78, 221, 0.5);
+            }
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: #7209b7;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+
+        .signature {
+            font-size: 1.5rem;
+            color: #9d4edd;
+            font-style: italic;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            .signature {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday, Amy 🤍</h1>
+        <p>May this year bring you everything your heart desires and more. You deserve a lifetime of joy, love, and all the beautiful moments we'll share together.</p>
+        <p>No matter the distance, you're always in my heart.</p>
+        <p class="signature">— Tristan ✦</p>
+    </div>
+</body>
+</html>
