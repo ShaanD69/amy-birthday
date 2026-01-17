@@ -1,205 +1,80 @@
+<!-- ============================================ -->
+<!-- FILE: index.html -->
+<!-- ============================================ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Birthday Surprise for Amy 💜</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Amy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Lo-fi music -->
-  <audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/audio/2023/03/13/audio_4b8cbd0a6a.mp3" type="audio/mpeg" />
-  </audio>
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #e9d5ff 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-  <style>
-    * { box-sizing: border-box; }
+        .container {
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #f8d1e3, #d9c9f4);
-      background-size: 400% 400%;
-      animation: gradient 20s ease infinite;
-      overflow-x: hidden;
-      overflow-y: auto;
-      scroll-behavior: smooth;
-      color: #4a2c5b;
-    }
+        h1 {
+            font-size: 2.5rem;
+            color: #9d4edd;
+            font-weight: 300;
+            letter-spacing: 2px;
+            animation: pulse 2s ease-in-out infinite;
+        }
 
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
 
-    /* Tap screen */
-    #start-screen {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.85);
-      z-index: 10;
-    }
-
-    #start-screen h1 {
-      font-size: 2rem;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { opacity: 0.5; }
-      50% { opacity: 1; }
-      100% { opacity: 0.5; }
-    }
-
-    /* Floating elements */
-    .floating {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    .heart, .star {
-      position: absolute;
-      opacity: 0.6;
-      animation: floatUp linear infinite;
-    }
-
-    .heart { color: #ff7fbf; }
-    .star { color: #fff; }
-
-    @keyframes floatUp {
-      from { transform: translateY(100vh); }
-      to { transform: translateY(-10vh); }
-    }
-
-    /* Content */
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 80px 20px 120px;
-      position: relative;
-      z-index: 2;
-      display: none;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(12px);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .card.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    p { line-height: 1.8; font-size: 1.05rem; }
-
-    button {
-      margin-top: 20px;
-      padding: 10px 18px;
-      border: none;
-      border-radius: 999px;
-      background: #e67ac1;
-      color: white;
-      font-size: 0.95rem;
-      cursor: pointer;
-    }
-
-    #final-message {
-      display: none;
-      margin-top: 30px;
-      font-size: 1.1rem;
-      animation: fadeIn 1s forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <div id="start-screen">
-    <h1>Tap to Begin 💗</h1>
-  </div>
-
-  <div class="floating" id="floating"></div>
-
-  <div class="container" id="content">
-    <div class="card" id="card">
-      <p>Dear Amy,</p>
-      <p>
-        Even with the distance between us, you make everything feel softer and warmer.
-        You’re always with me — in my thoughts, my heart, and every quiet moment.
-      </p>
-      <p>
-        This little space is just for you. Something calm, gentle, and full of love —
-        just like the way you make me feel.
-      </p>
-      <p>
-        Happy Birthday, Amy. I hope today reminds you how deeply you’re loved.
-      </p>
-      <p style="text-align:right;">— Tristan</p>
-
-      <button id="reveal">One More Thing…</button>
-      <div id="final-message">🤍 No matter the distance, I’m always with you.</div>
+    <audio id="bgMusic" loop>
+        <source src="https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="container" id="startBtn">
+        <h1>Tap to Begin 💗</h1>
     </div>
-  </div>
 
-  <script>
-    const start = document.getElementById('start-screen');
-    const content = document.getElementById('content');
-    const card = document.getElementById('card');
-    const music = document.getElementById('bg-music');
-    const floating = document.getElementById('floating');
+    <script>
+        const startBtn = document.getElementById('startBtn');
+        const bgMusic = document.getElementById('bgMusic');
 
-    start.addEventListener('click', () => {
-      start.style.display = 'none';
-      content.style.display = 'block';
-      setTimeout(() => card.classList.add('show'), 100);
-      music.play();
-      spawnFloating();
-    });
-
-    function spawnFloating() {
-      for (let i = 0; i < 20; i++) {
-        const el = document.createElement('div');
-        el.className = Math.random() > 0.5 ? 'heart' : 'star';
-        el.textContent = el.className === 'heart' ? '❤' : '✦';
-        el.style.left = Math.random() * 100 + 'vw';
-        el.style.fontSize = 12 + Math.random() * 18 + 'px';
-        el.style.animationDuration = 6 + Math.random() * 8 + 's';
-        floating.appendChild(el);
-      }
-    }
-
-    document.getElementById('reveal').onclick = () => {
-      document.getElementById('final-message').style.display = 'block';
-    };
-
-    document.body.addEventListener('click', e => {
-      if (!content.style.display) return;
-      const h = document.createElement('div');
-      h.className = 'heart';
-      h.textContent = '❤';
-      h.style.left = e.clientX + 'px';
-      h.style.top = e.clientY + 'px';
-      h.style.position = 'fixed';
-      h.style.animationDuration = '3s';
-      document.body.appendChild(h);
-      setTimeout(() => h.remove(), 3000);
-    });
-  </script>
+        startBtn.addEventListener('click', () => {
+            bgMusic.play().catch(e => console.log('Audio play failed:', e));
+            setTimeout(() => {
+                window.location.href = 'letter.html';
+            }, 300);
+        });
+    </script>
 </body>
 </html>
