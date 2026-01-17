@@ -1,0 +1,156 @@
+<!-- ============================================ -->
+<!-- FILE: memories.html -->
+<!-- ============================================ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Amy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #e9d5ff 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            max-width: 700px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 8px 32px rgba(157, 78, 221, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #9d4edd;
+            margin-bottom: 40px;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .memory {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .memory:last-of-type {
+            border-bottom: none;
+        }
+
+        .memory h2 {
+            font-size: 1.3rem;
+            color: #7209b7;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .memory p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #5a189a;
+        }
+
+        .btn {
+            display: block;
+            margin: 40px auto 0;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #c77dff 0%, #9d4edd 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            font-family: 'Georgia', serif;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .memory h2 {
+                font-size: 1.15rem;
+            }
+
+            .memory p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Things I Love About You ✦</h1>
+        
+        <div class="memory">
+            <h2>Your warmth</h2>
+            <p>The way you make everyone around you feel safe and valued. Your presence is like coming home, even from thousands of miles away.</p>
+        </div>
+        
+        <div class="memory">
+            <h2>Your laughter</h2>
+            <p>It's the sound that brightens my hardest days. When I hear you laugh, everything else fades away and I'm reminded of all the good in the world.</p>
+        </div>
+        
+        <div class="memory">
+            <h2>Your strength</h2>
+            <p>You face challenges with grace and courage that inspires me. Even when things are difficult, you never lose sight of what matters.</p>
+        </div>
+        
+        <div class="memory">
+            <h2>Your dreams</h2>
+            <p>The way you talk about your future, your passions, the things you want to create and experience. I love being part of that vision.</p>
+        </div>
+        
+        <div class="memory">
+            <h2>Your understanding</h2>
+            <p>You see me for who I truly am. You accept my flaws, celebrate my strengths, and make me want to be better every single day.</p>
+        </div>
+        
+        <div class="memory">
+            <h2>Your patience</h2>
+            <p>For waiting with me through this distance. For believing in us when it's hard. For choosing to stay when leaving would be easier.</p>
+        </div>
+        
+        <a href="final.html" class="btn">One Last Page 💜</a>
+    </div>
+</body>
+</html>
